@@ -324,6 +324,32 @@ class MyClass {
 
     }
 
+    static void sortOneZeros(int num){
+        String str=Integer.toString(num);
+        int count0=0,count1=0;
+        StringBuilder sorted=new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i)=='0') {
+                count0++;
+            }
+            else if (str.charAt(i)=='1') {
+                count1++;
+            }
+            else 
+            System.out.println("Other element will not processed");
+        }
+        while (count0>0) {
+            sorted.append('0');
+            count0--;
+        }
+        while (count1>0) { 
+            sorted.append('1');
+            count1--;
+        }
+        int sortedNum=Integer.parseInt(sorted.toString());
+        System.out.println("Number is "+sortedNum);
+    }
+
     public static void isPalindrome(String s) {
         String cleanString = s.replaceAll("[^a-zA-Z]", "").toLowerCase();
         int count = 0;
@@ -406,7 +432,8 @@ class MyClass {
         /*  for (int i = start; i <=end; i++) {
             primeNumberWithinRange(i);     
         } */
-        removeConsecutiveChars("aabaa");
+        sortOneZeros(101010);
+        //removeConsecutiveChars("aabaa");
         //isValidParentheses("([{}])");
         //anagram("rat", "tar");
         //isPalindrome(str);
