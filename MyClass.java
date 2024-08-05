@@ -419,6 +419,43 @@ class MyClass {
         System.out.println("Final string is "+sb.toString());
     }
 
+    static String longestCommonPrefix(String[] arr){ 
+        
+        if (arr==null||arr.length==0) {
+            return "";
+        }
+        
+        //Take the first string as base comparison string
+        String prefix=arr[0];
+        //Compare the prefix with each string in the array
+        for (int i = 1; i < arr.length; i++) {
+            while (arr[i].indexOf(prefix)!=0) { 
+            //Reduce prefix by one character from the end
+                prefix=prefix.substring(0, arr.length-1);
+            }
+            // If there is no common prefix, return an empty string
+            if (prefix.isEmpty()) {
+                return "";
+            }            
+        }
+
+        return prefix;
+        
+        
+        /* My Logic 
+        StringBuilder sb=new StringBuilder();
+        char[] ch=arr[0].toCharArray();
+        System.out.println(ch);
+        for (int i = 1; i < arr.length; i++) {
+         for (char ch1 : ch) {
+            if (ch1.equals(arr[i].toCharArray())) {
+                
+            }
+         }
+        } */
+
+    }
+
     public static void main(String[] args) {
         //System.out.println("Viraj");
         //int year=1241;
@@ -432,7 +469,8 @@ class MyClass {
         /*  for (int i = start; i <=end; i++) {
             primeNumberWithinRange(i);     
         } */
-        sortOneZeros(101010);
+       longestCommonPrefix(new String[]{"abc","abd","abe"});
+        //sortOneZeros(101010);
         //removeConsecutiveChars("aabaa");
         //isValidParentheses("([{}])");
         //anagram("rat", "tar");
